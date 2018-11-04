@@ -26,7 +26,7 @@ public class Main {
     public static void main(String[] args){
         jarPath = getJarPath();
         System.out.println(jarPath);
-        resizeAllImages(getImagesFromFolder(jarPath));
+        outputResizedImages(jarPath, resizeAllImages(getImagesFromFolder(jarPath)));
     }
 
     private static String getJarPath(){
@@ -131,5 +131,24 @@ public class Main {
         }
 
         return new Dimension(new_width, new_height);
+    }
+
+    private static void outputResizedImages(String mainDirPath, BufferedImage[] imagesToOutput){
+        File outputFolder = new File(mainDirPath.concat("/resized"));
+
+        if(!outputFolder.exists()){
+            outputFolder.mkdir();
+        }
+
+        try {
+            if (outputFolder.isDirectory()) {
+                for (int imageIndex = 0; imageIndex < imagesToOutput.length; imageIndex++) {
+                    File imageFile = new File(outputFolder.getAbsolutePath().concat("/" + imageIndex + ".png"));
+                    ImageIO.write(imagesToOutput[imageIndex], "png", imageFile);
+                }
+            }
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
     }
 }
