@@ -29,6 +29,7 @@ public class Main {
         jarPath = getJarPath();
         checkFolderConditions(jarPath);
         outputResizedImages(jarPath, resizeAllImages(getImagesFromFolder(jarPath)));
+        convertImagesToWebp(jarPath);
     }
 
     private static void checkFolderConditions(String mainDirPath){
@@ -54,8 +55,8 @@ public class Main {
             System.out.println("[checkFolderConditions] Creating \"converted\" folder.");
             convertedFolder.mkdirs();
         }
-        if(resizedFolder.exists() && resizedFolder.listFiles().length>0){
-            for(File file : resizedFolder.listFiles()){
+        if(convertedFolder.exists() && convertedFolder.listFiles().length>0){
+            for(File file : convertedFolder.listFiles()){
                 file.delete();
             }
             System.out.println("[checkFolderConditions] All files in \"converted\" have been deleted.");
@@ -197,6 +198,16 @@ public class Main {
 
                 }
             }
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    private static void convertImagesToWebp(String mainDirPath){
+        try{
+            Process process = new ProcessBuilder(mainDirPath.concat("\\cwebp.bat")).start();
+            process.waitFor();
+            System.out.println("[convertImagesToWebp] Images have been converted to webp.");
         }catch(Exception ex){
             ex.printStackTrace();
         }

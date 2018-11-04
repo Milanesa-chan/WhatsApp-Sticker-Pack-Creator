@@ -1,0 +1,1 @@
+forfiles /p "resized" /m *.png /c "../cwebp -size 100000 @file -o ../converted/@fname.webp"
