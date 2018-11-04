@@ -8,6 +8,7 @@ import java.io.FileFilter;
 import java.io.FilenameFilter;
 import java.net.URLDecoder;
 import java.nio.Buffer;
+import java.util.Scanner;
 
 public class Main {
     private static String jarPath;
@@ -24,9 +25,41 @@ public class Main {
     };
 
     public static void main(String[] args){
+        System.out.println("Developer: Milanesa-chan (@lucc22221)");
         jarPath = getJarPath();
-        System.out.println(jarPath);
+        checkFolderConditions(jarPath);
         outputResizedImages(jarPath, resizeAllImages(getImagesFromFolder(jarPath)));
+    }
+
+    private static void checkFolderConditions(String mainDirPath){
+        File inputFolder = new File(mainDirPath.concat("/input"));
+        File resizedFolder = new File(mainDirPath.concat("/resized"));
+        File convertedFolder = new File(mainDirPath.concat("/converted"));
+
+        if(!inputFolder.exists() || !inputFolder.isDirectory()){
+            inputFolder.mkdirs();
+            System.out.println("[Error][checkFolderConditions] No input folder found!");
+            System.out.println("[checkFolderConditions] Created input folder. Put your images there.");
+            Runtime.getRuntime().exit(0);
+        }
+
+        if(resizedFolder.exists() && resizedFolder.listFiles().length>0){
+            for(File file : resizedFolder.listFiles()){
+                file.delete();
+            }
+            System.out.println("[checkFolderConditions] All files in \"resized\" have been deleted.");
+        }
+
+        if(!convertedFolder.exists()){
+            System.out.println("[checkFolderConditions] Creating \"converted\" folder.");
+            convertedFolder.mkdirs();
+        }
+        if(resizedFolder.exists() && resizedFolder.listFiles().length>0){
+            for(File file : resizedFolder.listFiles()){
+                file.delete();
+            }
+            System.out.println("[checkFolderConditions] All files in \"converted\" have been deleted.");
+        }
     }
 
     private static String getJarPath(){
@@ -58,11 +91,13 @@ public class Main {
                     return images;
                 } else if (allImageFiles.length > 30){
                     System.out.println("[Error][getImagesFromFolder] Max amount of images is 30. Remove some images!");
+                    Runtime.getRuntime().exit(0);
                 } else if (allImageFiles.length < 3){
                     System.out.println("[Error][getImagesFromFolder] Minimum amount of images is 3. Add some images!");
+                    Runtime.getRuntime().exit(0);
                 } else {
                     System.out.println("[getImagesFromFolder] No valid files found in input folder.");
-                    return null;
+                    Runtime.getRuntime().exit(0);
                 }
             } else {
                 return null;
@@ -130,6 +165,20 @@ public class Main {
             new_width = (new_height * original_width) / original_height;
         }
 
+        if(original_width < bound_width){
+            if(original_height < bound_height){
+                new_height = bound_height;
+                new_width = (new_height * original_width) / original_height;
+            }
+        }
+
+        if(original_height < bound_height){
+            if(original_width < bound_width){
+                new_height = bound_height;
+                new_width = (new_height * original_width) / original_height;
+            }
+        }
+
         return new Dimension(new_width, new_height);
     }
 
@@ -143,8 +192,9 @@ public class Main {
         try {
             if (outputFolder.isDirectory()) {
                 for (int imageIndex = 0; imageIndex < imagesToOutput.length; imageIndex++) {
-                    File imageFile = new File(outputFolder.getAbsolutePath().concat("/" + imageIndex + ".png"));
+                    File imageFile = new File(outputFolder.getAbsolutePath().concat("/" + (imageIndex+1) + ".png"));
                     ImageIO.write(imagesToOutput[imageIndex], "png", imageFile);
+
                 }
             }
         }catch(Exception ex){
