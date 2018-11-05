@@ -5,9 +5,8 @@
 - This readme.
 
 - For main functionality:
-   - Clear the apk contents folder and put the images in it.
-   - Ask for a name for the pack.
-   - Use a model "contents.json" with regex to create a custom one for the images.
-   - Put everything into the apk folder.
+   - Better read the model json into an array.
+   - Customize the contents data using array.
+   - Make the sticker names in the customized json work.
    - Use gradlew to assemble the final apk.
    - Move the apk to the "output" folder.
