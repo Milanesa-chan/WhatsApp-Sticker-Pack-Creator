@@ -8,28 +8,26 @@ import java.io.FileFilter;
 import java.io.FilenameFilter;
 import java.net.URLDecoder;
 import java.nio.Buffer;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
-    private static String jarPath;
-
-    private static FilenameFilter imageFilenameFilter = new FilenameFilter() {
-        @Override
-        public boolean accept(File dir, String name) {
-            if(name.endsWith(".jpg") || name.endsWith(".jpeg") || name.endsWith(".png")){
-                return true;
-            }else {
-                return false;
-            }
-        }
-    };
+    private static String jarPath, packName, assetsFolderPath, jsonData;
 
     public static void main(String[] args){
         System.out.println("Developer: Milanesa-chan (@lucc22221)");
-        jarPath = getJarPath();
+        System.out.print("Set a name for your pack: ");
+        Scanner inputScanner = new Scanner(System.in);
+        packName = inputScanner.next();
+        jarPath = FileGetters.getJarPath();
+        assetsFolderPath = jarPath.concat("/android/app/src/main/assets");
         checkFolderConditions(jarPath);
-        outputResizedImages(jarPath, resizeAllImages(getImagesFromFolder(jarPath)));
-        convertImagesToWebp(jarPath);
+        outputResizedImages(jarPath, ImageModifiers.resizeAllImages(FileGetters.getImagesFromFolder(jarPath)));
+        ImageModifiers.convertImagesToWebp(jarPath);
+        ImageModifiers.moveImagesToAssets(assetsFolderPath, jarPath);
+        jsonData = FileGetters.getModelData(FileGetters.getModelJson(jarPath));
+        String customJsonData = FileModifiers.customizeDataForPack(jsonData, packName, "asd.jpg", amountOfConvertedImages(jarPath));
+        FileModifiers.writeContentsJson(assetsFolderPath, customJsonData);
     }
 
     private static void checkFolderConditions(String mainDirPath){
@@ -41,7 +39,7 @@ public class Main {
             inputFolder.mkdirs();
             System.out.println("[Error][checkFolderConditions] No input folder found!");
             System.out.println("[checkFolderConditions] Created input folder. Put your images there.");
-            Runtime.getRuntime().exit(0);
+            Runtime.getRuntime().exit(1);
         }
 
         if(resizedFolder.exists() && resizedFolder.listFiles().length>0){
@@ -61,126 +59,8 @@ public class Main {
             }
             System.out.println("[checkFolderConditions] All files in \"converted\" have been deleted.");
         }
-    }
 
-    private static String getJarPath(){
-        try {
-            File jarFile = new File(Main.class.getProtectionDomain().getCodeSource().getLocation().getPath());
-            String encodedJarPath = jarFile.getParentFile().getAbsolutePath();
-            return URLDecoder.decode(encodedJarPath, "UTF-8");
-        } catch (Exception ex){
-            ex.printStackTrace();
-        }
-
-        return "Error";
-    }
-
-
-    private static BufferedImage[] getImagesFromFolder(String mainDirPath) {
-        try {
-            File inputDir = new File(mainDirPath.concat("/input"));
-
-            if (inputDir.exists() && inputDir.isDirectory()) {
-                File[] allImageFiles = inputDir.listFiles(imageFilenameFilter);
-
-                if (allImageFiles.length >= 3 && allImageFiles.length <=30) {
-                    BufferedImage[] images = new BufferedImage[allImageFiles.length];
-                    for (int fileIndex = 0; fileIndex < allImageFiles.length; fileIndex++) {
-                        images[fileIndex] = ImageIO.read(allImageFiles[fileIndex]);
-                        System.out.println("[getImagesFromFolder] Loaded image file: " + allImageFiles[fileIndex].getName());
-                    }
-                    return images;
-                } else if (allImageFiles.length > 30){
-                    System.out.println("[Error][getImagesFromFolder] Max amount of images is 30. Remove some images!");
-                    Runtime.getRuntime().exit(0);
-                } else if (allImageFiles.length < 3){
-                    System.out.println("[Error][getImagesFromFolder] Minimum amount of images is 3. Add some images!");
-                    Runtime.getRuntime().exit(0);
-                } else {
-                    System.out.println("[getImagesFromFolder] No valid files found in input folder.");
-                    Runtime.getRuntime().exit(0);
-                }
-            } else {
-                return null;
-            }
-        } catch(Exception ex){
-            ex.printStackTrace();
-        }
-        return null;
-    }
-
-    private static BufferedImage[] resizeAllImages(BufferedImage[] originalImages){
-        BufferedImage[] resizedImages = new BufferedImage[originalImages.length];
-
-        for(int imageIndex=0; imageIndex<resizedImages.length; imageIndex++){
-            resizedImages[imageIndex] = resizeImage(originalImages[imageIndex]);
-            System.out.println("[resizeAllImages] Images resized: "+(imageIndex+1)+"/"+originalImages.length);
-        }
-
-        return resizedImages;
-    }
-
-    private static BufferedImage resizeImage(BufferedImage originalImage){
-        BufferedImage resizedImage = new BufferedImage(512, 512, BufferedImage.TYPE_INT_ARGB);
-
-        Dimension originalDimension = new Dimension(originalImage.getWidth(), originalImage.getHeight());
-
-        Dimension resizedDimension = getNewImageDimensions(
-                originalDimension,
-                new Dimension(512, 512)
-        );
-
-        Point centeredImagePoint = new Point(
-                (512-resizedDimension.width)/2,
-                (512-resizedDimension.height)/2
-        );
-
-        Graphics2D g = resizedImage.createGraphics();
-        g.drawImage(
-                originalImage,
-                centeredImagePoint.x,
-                centeredImagePoint.y,
-                resizedDimension.width,
-                resizedDimension.height,
-                null
-                );
-        g.dispose();
-        return resizedImage;
-    }
-
-    private static Dimension getNewImageDimensions(Dimension imgSize, Dimension boundary){
-        int original_width = imgSize.width;
-        int original_height = imgSize.height;
-        int bound_width = boundary.width;
-        int bound_height = boundary.height;
-        int new_width = original_width;
-        int new_height = original_height;
-
-        if (original_width > bound_width) {
-            new_width = bound_width;
-            new_height = (new_width * original_height) / original_width;
-        }
-
-        if (new_height > bound_height) {
-            new_height = bound_height;
-            new_width = (new_height * original_width) / original_height;
-        }
-
-        if(original_width < bound_width){
-            if(original_height < bound_height){
-                new_height = bound_height;
-                new_width = (new_height * original_width) / original_height;
-            }
-        }
-
-        if(original_height < bound_height){
-            if(original_width < bound_width){
-                new_height = bound_height;
-                new_width = (new_height * original_width) / original_height;
-            }
-        }
-
-        return new Dimension(new_width, new_height);
+        FileModifiers.prepareAssetsFolder(assetsFolderPath);
     }
 
     private static void outputResizedImages(String mainDirPath, BufferedImage[] imagesToOutput){
@@ -203,13 +83,8 @@ public class Main {
         }
     }
 
-    private static void convertImagesToWebp(String mainDirPath){
-        try{
-            Process process = new ProcessBuilder(mainDirPath.concat("\\cwebp.bat")).start();
-            process.waitFor();
-            System.out.println("[convertImagesToWebp] Images have been converted to webp.");
-        }catch(Exception ex){
-            ex.printStackTrace();
-        }
+    private static int amountOfConvertedImages(String mainDirPath){
+        File contentsDir = new File(mainDirPath.concat("/converted"));
+        return contentsDir.listFiles().length;
     }
 }
