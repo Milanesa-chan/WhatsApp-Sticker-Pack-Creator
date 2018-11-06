@@ -7,6 +7,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FilenameFilter;
 import java.net.URLDecoder;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FileGetters {
 
@@ -82,21 +84,26 @@ public class FileGetters {
         }
     }
 
-    static String getModelData(File modelJson){
+    static List<String> getModelData(File modelJson){
         try {
             FileReader fileReader = new FileReader(modelJson);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
-            String data = "";
-            String line = bufferedReader.readLine();
-            while(line != null){
-                data += line;
-                line = bufferedReader.readLine();
+
+            List<String> data = new ArrayList<>();
+
+            String currentData = bufferedReader.readLine();
+            while(currentData != null){
+                data.add(currentData);
+                currentData = bufferedReader.readLine();
             }
-            bufferedReader.close();
+
             return data;
+
         }catch(Exception ex){
             ex.printStackTrace();
             return null;
         }
     }
+
+
 }

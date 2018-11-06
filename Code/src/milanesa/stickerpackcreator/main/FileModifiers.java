@@ -3,6 +3,8 @@ package milanesa.stickerpackcreator.main;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FileModifiers {
 
@@ -36,33 +38,56 @@ public class FileModifiers {
         }
     }
 
-    static String customizeDataForPack(String modelData, String packName, String trayName, int amountOfImages){
-        String customData = modelData;
-        String imageFileModel = "{" +
-                "\"image_file\": \"[imagenumber].webp\"" +
-                "}";
+    static List<String> customizeDataForPack(List<String> modelData, String packName, String trayName){
+        List<String> customData = new ArrayList<>();
+        List<String> customImageFiles = customImageFileLines(3);
 
-        customData = customData.replaceFirst("\\[packname]", packName);
-        customData = customData.replaceFirst("\\[trayname]", trayName);
+        for(int line=0; line<modelData.size(); line++){
+            String lineData = modelData.get(line);
 
-        String[] dataArray = customData.split("\\[imagefiles]");
-
-        for(int imageNum=1; imageNum<=amountOfImages; imageNum++){
-            dataArray[0] = dataArray[0].concat(imageFileModel.replace("\\[imageNumber]", String.valueOf(imageNum)));
+            if(lineData.contains("[imagefiles]")){
+                for(int customLine=0; customLine<customImageFiles.size(); customLine++){
+                    customData.add(customImageFiles.get(customLine));
+                }
+            }else if(lineData.contains("[packname]")) {
+                    customData.add(lineData.replaceFirst("\\[packname]", packName));
+            }else if(lineData.contains("[trayname]")) {
+                customData.add(lineData.replaceFirst("\\[trayname]", trayName));
+            }else{
+                customData.add(lineData);
+            }
         }
 
-        customData = dataArray[0].concat(dataArray[1]);
         return customData;
     }
 
-    static void writeContentsJson(String assetsDirPath, String jsonData){
+    static List<String> customImageFileLines(int amountOfImages){
+        List<String> customLines = new ArrayList<>();
+        String[] imageFileModel = {"{", "\"image_file\": \"[imagenumber].webp\"", "}"};
+
+        General.addStringArrayIntoList(customLines, General.replaceInArray(imageFileModel, "\\[imagenumber]", "1"));
+        for(int imageNum=2; imageNum<=amountOfImages; imageNum++){
+            customLines.add(",");
+            General.addStringArrayIntoList(customLines, General.replaceInArray(imageFileModel, "\\[imagenumber]", String.valueOf(imageNum)));
+        }
+
+        System.out.println("[customImageFileLines] Json data customized.");
+
+        return customLines;
+    }
+
+    static void writeContentsJson(String assetsDirPath, List<String> jsonData){
         try {
             File contentsJson = new File(assetsDirPath.concat("/contents.json"));
             contentsJson.createNewFile();
             FileWriter fileWriter = new FileWriter(contentsJson);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.write(jsonData);
+            for(String lineData : jsonData){
+                bufferedWriter.write(lineData);
+                bufferedWriter.newLine();
+            }
             bufferedWriter.close();
+            System.out.println("[writeContentsJson] Custom Json written.");
         }catch(Exception ex){
             ex.printStackTrace();
         }

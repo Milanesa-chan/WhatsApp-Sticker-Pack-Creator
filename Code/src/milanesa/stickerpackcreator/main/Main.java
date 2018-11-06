@@ -1,18 +1,19 @@
 package milanesa.stickerpackcreator.main;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FilenameFilter;
 import java.net.URLDecoder;
 import java.nio.Buffer;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
-    private static String jarPath, packName, assetsFolderPath, jsonData;
+    private static String packName, assetsFolderPath;
+    public static String jarPath;
 
     public static void main(String[] args){
         System.out.println("Developer: Milanesa-chan (@lucc22221)");
@@ -20,13 +21,18 @@ public class Main {
         Scanner inputScanner = new Scanner(System.in);
         packName = inputScanner.next();
         jarPath = FileGetters.getJarPath();
+
+
+
         assetsFolderPath = jarPath.concat("/android/app/src/main/assets");
         checkFolderConditions(jarPath);
         outputResizedImages(jarPath, ImageModifiers.resizeAllImages(FileGetters.getImagesFromFolder(jarPath)));
         ImageModifiers.convertImagesToWebp(jarPath);
         ImageModifiers.moveImagesToAssets(assetsFolderPath, jarPath);
-        jsonData = FileGetters.getModelData(FileGetters.getModelJson(jarPath));
-        String customJsonData = FileModifiers.customizeDataForPack(jsonData, packName, "asd.jpg", amountOfConvertedImages(jarPath));
+
+        List<String> jsonData = FileGetters.getModelData(FileGetters.getModelJson(jarPath));
+
+        List<String> customJsonData = FileModifiers.customizeDataForPack(jsonData, packName, "asd.jpg");
         FileModifiers.writeContentsJson(assetsFolderPath, customJsonData);
     }
 
@@ -81,10 +87,5 @@ public class Main {
         }catch(Exception ex){
             ex.printStackTrace();
         }
-    }
-
-    private static int amountOfConvertedImages(String mainDirPath){
-        File contentsDir = new File(mainDirPath.concat("/converted"));
-        return contentsDir.listFiles().length;
     }
 }
