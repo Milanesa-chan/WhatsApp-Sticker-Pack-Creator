@@ -6,7 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/milanesa/stickerpackcreator/main/Main.java" line="37" mnemonic="8" />
+    <bookmark url="file://$PROJECT_DIR$/src/milanesa/stickerpackcreator/main/Main.java" line="40" mnemonic="8" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1446e3b5-9271-4648-b631-86281453ab92" name="Default" comment="" />
@@ -20,12 +20,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/milanesa/stickerpackcreator/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+            <state relative-caret-position="128">
+              <caret line="17" column="33" lean-forward="true" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
               <folding>
+                <element signature="method#main#0;class#Main#0" />
                 <element signature="method#checkFolderConditions#0;class#Main#0" />
                 <element signature="method#outputResizedImages#0;class#Main#0" />
                 <element signature="method#outputTrayImage#0;class#Main#0" />
@@ -78,7 +79,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileGetters.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FileGetters.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/milanesa/stickerpackcreator/main/FileGetters.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="192">
@@ -111,9 +112,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/milanesa/stickerpackcreator/main/General.java" />
-        <option value="$PROJECT_DIR$/src/milanesa/stickerpackcreator/main/FileModifiers.java" />
         <option value="$PROJECT_DIR$/src/milanesa/stickerpackcreator/main/FileGetters.java" />
         <option value="$PROJECT_DIR$/src/milanesa/stickerpackcreator/main/ImageModifiers.java" />
+        <option value="$PROJECT_DIR$/src/milanesa/stickerpackcreator/main/FileModifiers.java" />
         <option value="$PROJECT_DIR$/src/milanesa/stickerpackcreator/main/Main.java" />
       </list>
     </option>
@@ -294,6 +295,7 @@
         <state relative-caret-position="640">
           <caret line="89" column="5" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
           <folding>
+            <element signature="method#main#0;class#Main#0" />
             <element signature="method#checkFolderConditions#0;class#Main#0" />
             <element signature="method#outputResizedImages#0;class#Main#0" />
             <element signature="method#outputTrayImage#0;class#Main#0" />
@@ -362,6 +364,7 @@
         <state relative-caret-position="464">
           <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
           <folding>
+            <element signature="method#main#0;class#Main#0" />
             <element signature="method#checkFolderConditions#0;class#Main#0" />
             <element signature="method#outputResizedImages#0;class#Main#0" />
             <element signature="method#outputTrayImage#0;class#Main#0" />
@@ -414,31 +417,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/milanesa/stickerpackcreator/main/FileGetters.java">
+    <entry file="file://$PROJECT_DIR$/src/milanesa/stickerpackcreator/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
+        <state relative-caret-position="128">
+          <caret line="17" column="33" lean-forward="true" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
           <folding>
-            <element signature="class#388:828" />
-            <element signature="method#accept#0;class#388:828" />
-            <element signature="class#868:1152" />
-            <element signature="method#accept#0;class#868:1152" />
-            <element signature="method#getJarPath#0;class#FileGetters#0" />
-            <element signature="method#getImagesFromFolder#0;class#FileGetters#0" />
-            <element signature="method#getModelJson#0;class#FileGetters#0" />
-            <element signature="method#getModelData#0;class#FileGetters#0" />
-            <element signature="method#getTrayImage#0;class#FileGetters#0" />
+            <element signature="method#main#0;class#Main#0" />
+            <element signature="method#checkFolderConditions#0;class#Main#0" />
+            <element signature="method#outputResizedImages#0;class#Main#0" />
+            <element signature="method#outputTrayImage#0;class#Main#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/milanesa/stickerpackcreator/main/General.java">
+    <entry file="file://$PROJECT_DIR$/src/milanesa/stickerpackcreator/main/FileModifiers.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="15" column="82" selection-start-line="15" selection-start-column="82" selection-end-line="15" selection-end-column="82" />
+        <state relative-caret-position="224">
+          <caret line="95" selection-start-line="95" selection-end-line="95" />
           <folding>
-            <element signature="method#addStringArrayIntoList#0;class#General#0" />
-            <element signature="method#replaceInArray#0;class#General#0" />
+            <element signature="method#prepareAssetsFolder#0;class#FileModifiers#0" />
+            <element signature="method#customizeDataForPack#0;class#FileModifiers#0" />
+            <element signature="method#customImageFileLines#0;class#FileModifiers#0" />
+            <element signature="method#writeContentsJson#0;class#FileModifiers#0" />
           </folding>
         </state>
       </provider>
@@ -457,27 +457,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/milanesa/stickerpackcreator/main/FileModifiers.java">
+    <entry file="file://$PROJECT_DIR$/src/milanesa/stickerpackcreator/main/General.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="95" selection-start-line="95" selection-end-line="95" />
+        <state relative-caret-position="128">
+          <caret line="15" column="82" selection-start-line="15" selection-start-column="82" selection-end-line="15" selection-end-column="82" />
           <folding>
-            <element signature="method#prepareAssetsFolder#0;class#FileModifiers#0" />
-            <element signature="method#customizeDataForPack#0;class#FileModifiers#0" />
-            <element signature="method#customImageFileLines#0;class#FileModifiers#0" />
-            <element signature="method#writeContentsJson#0;class#FileModifiers#0" />
+            <element signature="method#addStringArrayIntoList#0;class#General#0" />
+            <element signature="method#replaceInArray#0;class#General#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/milanesa/stickerpackcreator/main/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/milanesa/stickerpackcreator/main/FileGetters.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+        <state relative-caret-position="192">
+          <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
           <folding>
-            <element signature="method#checkFolderConditions#0;class#Main#0" />
-            <element signature="method#outputResizedImages#0;class#Main#0" />
-            <element signature="method#outputTrayImage#0;class#Main#0" />
+            <element signature="class#388:828" />
+            <element signature="method#accept#0;class#388:828" />
+            <element signature="class#868:1152" />
+            <element signature="method#accept#0;class#868:1152" />
+            <element signature="method#getJarPath#0;class#FileGetters#0" />
+            <element signature="method#getImagesFromFolder#0;class#FileGetters#0" />
+            <element signature="method#getModelJson#0;class#FileGetters#0" />
+            <element signature="method#getModelData#0;class#FileGetters#0" />
+            <element signature="method#getTrayImage#0;class#FileGetters#0" />
           </folding>
         </state>
       </provider>

@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
+//Milanesa-chan (@lucc22221) made this crap.
+
 public class Main {
     private static String packName, assetsFolderPath;
     public static String jarPath;
@@ -20,6 +22,7 @@ public class Main {
         System.out.print("Set a name for your pack: ");
         Scanner inputScanner = new Scanner(System.in);
         packName = inputScanner.next();
+
         jarPath = FileGetters.getJarPath();
         assetsFolderPath = jarPath.concat("/android/app/src/main/assets");
 
