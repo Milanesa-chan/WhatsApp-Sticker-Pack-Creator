@@ -21,18 +21,21 @@ public class Main {
         Scanner inputScanner = new Scanner(System.in);
         packName = inputScanner.next();
         jarPath = FileGetters.getJarPath();
-
-
-
         assetsFolderPath = jarPath.concat("/android/app/src/main/assets");
+
         checkFolderConditions(jarPath);
+
         outputResizedImages(jarPath, ImageModifiers.resizeAllImages(FileGetters.getImagesFromFolder(jarPath)));
         ImageModifiers.convertImagesToWebp(jarPath);
         ImageModifiers.moveImagesToAssets(assetsFolderPath, jarPath);
 
+        BufferedImage trayImage = FileGetters.getTrayImage(jarPath);
+        trayImage = ImageModifiers.resizeTray(trayImage);
+        outputTrayImage(assetsFolderPath, trayImage);
+
         List<String> jsonData = FileGetters.getModelData(FileGetters.getModelJson(jarPath));
 
-        List<String> customJsonData = FileModifiers.customizeDataForPack(jsonData, packName, "asd.jpg");
+        List<String> customJsonData = FileModifiers.customizeDataForPack(jsonData, packName, "tray.png");
         FileModifiers.writeContentsJson(assetsFolderPath, customJsonData);
     }
 
@@ -84,6 +87,16 @@ public class Main {
 
                 }
             }
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    private static void outputTrayImage(String assetsFolderPath, BufferedImage trayImage){
+        try {
+            File outputImageFile = new File(assetsFolderPath.concat("/1/tray.png"));
+            ImageIO.write(trayImage, "png", outputImageFile);
+            System.out.println("[outputTrayImage] Tray image written into assets folder.");
         }catch(Exception ex){
             ex.printStackTrace();
         }

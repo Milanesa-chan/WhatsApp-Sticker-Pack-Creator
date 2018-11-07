@@ -122,4 +122,5 @@ public class ImageModifiers {
 
         System.out.println("[moveImagesToAssets] All images moved to assets folder.");
     }
+
 }

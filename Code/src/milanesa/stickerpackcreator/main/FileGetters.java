@@ -15,14 +15,25 @@ public class FileGetters {
     private static FilenameFilter imageFilenameFilter = new FilenameFilter() {
         @Override
         public boolean accept(File dir, String name) {
-            if(name.endsWith(".jpg") || name.endsWith(".jpeg") || name.endsWith(".png")){
+            if(name.equals("tray.jpg") || name.equals("tray.jpeg") || name.equals("tray.png")) {
+                return false;
+            }else if(name.endsWith(".jpg") || name.endsWith(".jpeg") || name.endsWith(".png")){
+                return true;
+            }else{
+                return false;
+            }
+        }
+    };
+    private static FilenameFilter trayImageFilter = new FilenameFilter() {
+        @Override
+        public boolean accept(File dir, String name) {
+            if(name.equals("tray.png") || name.equals("tray.jpg") || name.equals("tray.jpeg")){
                 return true;
             }else {
                 return false;
             }
         }
     };
-
 
     static String getJarPath(){
         try {
@@ -35,7 +46,6 @@ public class FileGetters {
 
         return "Error";
     }
-
 
     static BufferedImage[] getImagesFromFolder(String mainDirPath) {
         try {
@@ -105,5 +115,31 @@ public class FileGetters {
         }
     }
 
+    static BufferedImage getTrayImage(String mainDirPath){
+        try {
+            File inputDir = new File(mainDirPath.concat("/input"));
+            if(!inputDir.exists() || !inputDir.isDirectory()){
+                System.out.println("[Error][getTrayImage] Problem finding input directory. Reinstall de application or ask the developer.");
+                Runtime.getRuntime().exit(1);
+            }else{
+                File[] possibleTrayImages = inputDir.listFiles(trayImageFilter);
+
+                if(possibleTrayImages.length==0){
+                    System.out.println("[Error][getTrayImage] No tray image found! Input folder must have an image called \"tray\".");
+                    Runtime.getRuntime().exit(1);
+                }else if(possibleTrayImages.length>1){
+                    System.out.println("[Error][getTrayImage] Multiple tray images found. Input directory must have only one image called \"tray\".");
+                    Runtime.getRuntime().exit(1);
+                }else{
+                    BufferedImage trayImageFile = ImageIO.read(possibleTrayImages[0]);
+                    System.out.println("[getTrayImage] Tray image found and loaded.");
+                    return trayImageFile;
+                }
+            }
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return null;
+    }
 
 }
