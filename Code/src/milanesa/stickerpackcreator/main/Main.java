@@ -58,13 +58,19 @@ public class Main {
         List<String> customJsonData = FileModifiers.customizeDataForPack(jsonData, packName, "tray.png");
         FileModifiers.writeContentsJson(assetsFolderPath, customJsonData);
 
-        
+        //Start the build of the apk. It uses the gradle "assembleDebug" I plan on making this better in the future,
+        //but for now this will work. Also the output apk gets moved into the "output" folder.
+        FileModifiers.startGradleBuild(jarPath);
+        String apkOutputPath = jarPath.concat("/android/app/build/outputs/apk/debug/app-debug.apk");
+        moveApkToOutput(jarPath, apkOutputPath);
+        System.out.println("[Main] Process finished.");
     }
 
     private static void checkFolderConditions(String mainDirPath){
         File inputFolder = new File(mainDirPath.concat("/input"));
         File resizedFolder = new File(mainDirPath.concat("/resized"));
         File convertedFolder = new File(mainDirPath.concat("/converted"));
+        File outputFolder = new File(mainDirPath.concat("/output"));
 
         if(!inputFolder.exists() || !inputFolder.isDirectory()){
             inputFolder.mkdirs();
@@ -89,6 +95,17 @@ public class Main {
                 file.delete();
             }
             System.out.println("[checkFolderConditions] All files in \"converted\" have been deleted.");
+        }
+
+        if(!outputFolder.exists()){
+            System.out.println("[checkFolderConditions] Creating \"output\" folder.");
+            outputFolder.mkdirs();
+        }
+        if(outputFolder.exists() && outputFolder.listFiles().length>0){
+            for(File file : outputFolder.listFiles()){
+                file.delete();
+            }
+            System.out.println("[checkFolderConditions] All files in \"output\" have been deleted.");
         }
 
         FileModifiers.prepareAssetsFolder(assetsFolderPath);
@@ -122,5 +139,11 @@ public class Main {
         }catch(Exception ex){
             ex.printStackTrace();
         }
+    }
+
+    private static void moveApkToOutput(String mainDirPath, String apkOutputPath){
+        File apkFile = new File(apkOutputPath);
+        apkFile.renameTo(new File(mainDirPath.concat("/output/CustomStickerPack.apk")));
+        System.out.println("[moveApkToOutput] Apk moved to output folder. Main process finished successfully!");
     }
 }

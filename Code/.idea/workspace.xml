@@ -23,12 +23,21 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/milanesa/stickerpackcreator/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="624">
-              <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
+            <state relative-caret-position="160">
+              <caret line="19" column="42" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
               <folding>
+                <element signature="method#main#0;class#Main#0" />
+                <element signature="e#848#934#0" />
+                <element signature="e#1149#1214#0" />
+                <element signature="e#1714#1799#0" />
+                <element signature="e#2037#2117#0" />
+                <element signature="e#2377#2471#0" />
+                <element signature="e#2647#2744#0" />
+                <element signature="e#2972#3080#0" />
                 <element signature="method#checkFolderConditions#0;class#Main#0" />
                 <element signature="method#outputResizedImages#0;class#Main#0" />
                 <element signature="method#outputTrayImage#0;class#Main#0" />
+                <element signature="method#moveApkToOutput#0;class#Main#0" />
               </folding>
             </state>
           </provider>
@@ -37,13 +46,14 @@
       <file leaf-file-name="FileModifiers.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/milanesa/stickerpackcreator/main/FileModifiers.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="93" column="5" selection-start-line="93" selection-start-column="5" selection-end-line="93" selection-end-column="5" />
+            <state relative-caret-position="224">
+              <caret line="93" column="52" selection-start-line="93" selection-start-column="52" selection-end-line="93" selection-end-column="52" />
               <folding>
                 <element signature="method#prepareAssetsFolder#0;class#FileModifiers#0" />
                 <element signature="method#customizeDataForPack#0;class#FileModifiers#0" />
                 <element signature="method#customImageFileLines#0;class#FileModifiers#0" />
                 <element signature="method#writeContentsJson#0;class#FileModifiers#0" />
+                <element signature="method#startGradleBuild#0;class#FileModifiers#0" />
               </folding>
             </state>
           </provider>
@@ -250,10 +260,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3292683" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info id="Image Layers" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
@@ -264,7 +274,7 @@
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19987147" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19987147" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="5" />
@@ -277,7 +287,6 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3292683" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -294,9 +303,18 @@
         <state relative-caret-position="128">
           <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
           <folding>
+            <element signature="method#main#0;class#Main#0" />
+            <element signature="e#848#934#0" />
+            <element signature="e#1149#1214#0" />
+            <element signature="e#1714#1799#0" />
+            <element signature="e#2037#2117#0" />
+            <element signature="e#2377#2471#0" />
+            <element signature="e#2647#2744#0" />
+            <element signature="e#2972#3080#0" />
             <element signature="method#checkFolderConditions#0;class#Main#0" />
             <element signature="method#outputResizedImages#0;class#Main#0" />
             <element signature="method#outputTrayImage#0;class#Main#0" />
+            <element signature="method#moveApkToOutput#0;class#Main#0" />
           </folding>
         </state>
       </provider>
@@ -310,6 +328,7 @@
             <element signature="method#customizeDataForPack#0;class#FileModifiers#0" />
             <element signature="method#customImageFileLines#0;class#FileModifiers#0" />
             <element signature="method#writeContentsJson#0;class#FileModifiers#0" />
+            <element signature="method#startGradleBuild#0;class#FileModifiers#0" />
           </folding>
         </state>
       </provider>
@@ -362,9 +381,18 @@
         <state relative-caret-position="640">
           <caret line="89" column="5" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
           <folding>
+            <element signature="method#main#0;class#Main#0" />
+            <element signature="e#848#934#0" />
+            <element signature="e#1149#1214#0" />
+            <element signature="e#1714#1799#0" />
+            <element signature="e#2037#2117#0" />
+            <element signature="e#2377#2471#0" />
+            <element signature="e#2647#2744#0" />
+            <element signature="e#2972#3080#0" />
             <element signature="method#checkFolderConditions#0;class#Main#0" />
             <element signature="method#outputResizedImages#0;class#Main#0" />
             <element signature="method#outputTrayImage#0;class#Main#0" />
+            <element signature="method#moveApkToOutput#0;class#Main#0" />
           </folding>
         </state>
       </provider>
@@ -421,6 +449,7 @@
             <element signature="method#customizeDataForPack#0;class#FileModifiers#0" />
             <element signature="method#customImageFileLines#0;class#FileModifiers#0" />
             <element signature="method#writeContentsJson#0;class#FileModifiers#0" />
+            <element signature="method#startGradleBuild#0;class#FileModifiers#0" />
           </folding>
         </state>
       </provider>
@@ -430,9 +459,18 @@
         <state relative-caret-position="464">
           <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
           <folding>
+            <element signature="method#main#0;class#Main#0" />
+            <element signature="e#848#934#0" />
+            <element signature="e#1149#1214#0" />
+            <element signature="e#1714#1799#0" />
+            <element signature="e#2037#2117#0" />
+            <element signature="e#2377#2471#0" />
+            <element signature="e#2647#2744#0" />
+            <element signature="e#2972#3080#0" />
             <element signature="method#checkFolderConditions#0;class#Main#0" />
             <element signature="method#outputResizedImages#0;class#Main#0" />
             <element signature="method#outputTrayImage#0;class#Main#0" />
+            <element signature="method#moveApkToOutput#0;class#Main#0" />
           </folding>
         </state>
       </provider>
@@ -446,6 +484,7 @@
             <element signature="method#customizeDataForPack#0;class#FileModifiers#0" />
             <element signature="method#customImageFileLines#0;class#FileModifiers#0" />
             <element signature="method#writeContentsJson#0;class#FileModifiers#0" />
+            <element signature="method#startGradleBuild#0;class#FileModifiers#0" />
           </folding>
         </state>
       </provider>
@@ -482,6 +521,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/milanesa/stickerpackcreator/main/General.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="15" column="82" selection-start-line="15" selection-start-column="82" selection-end-line="15" selection-end-column="82" />
+          <folding>
+            <element signature="method#addStringArrayIntoList#0;class#General#0" />
+            <element signature="method#replaceInArray#0;class#General#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/milanesa/stickerpackcreator/main/FileGetters.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
@@ -514,38 +564,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/milanesa/stickerpackcreator/main/General.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="15" column="82" selection-start-line="15" selection-start-column="82" selection-end-line="15" selection-end-column="82" />
-          <folding>
-            <element signature="method#addStringArrayIntoList#0;class#General#0" />
-            <element signature="method#replaceInArray#0;class#General#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/milanesa/stickerpackcreator/main/FileModifiers.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="93" column="5" selection-start-line="93" selection-start-column="5" selection-end-line="93" selection-end-column="5" />
+        <state relative-caret-position="224">
+          <caret line="93" column="52" selection-start-line="93" selection-start-column="52" selection-end-line="93" selection-end-column="52" />
           <folding>
             <element signature="method#prepareAssetsFolder#0;class#FileModifiers#0" />
             <element signature="method#customizeDataForPack#0;class#FileModifiers#0" />
             <element signature="method#customImageFileLines#0;class#FileModifiers#0" />
             <element signature="method#writeContentsJson#0;class#FileModifiers#0" />
+            <element signature="method#startGradleBuild#0;class#FileModifiers#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/milanesa/stickerpackcreator/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
+        <state relative-caret-position="160">
+          <caret line="19" column="42" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
           <folding>
+            <element signature="method#main#0;class#Main#0" />
+            <element signature="e#848#934#0" />
+            <element signature="e#1149#1214#0" />
+            <element signature="e#1714#1799#0" />
+            <element signature="e#2037#2117#0" />
+            <element signature="e#2377#2471#0" />
+            <element signature="e#2647#2744#0" />
+            <element signature="e#2972#3080#0" />
             <element signature="method#checkFolderConditions#0;class#Main#0" />
             <element signature="method#outputResizedImages#0;class#Main#0" />
             <element signature="method#outputTrayImage#0;class#Main#0" />
+            <element signature="method#moveApkToOutput#0;class#Main#0" />
           </folding>
         </state>
       </provider>

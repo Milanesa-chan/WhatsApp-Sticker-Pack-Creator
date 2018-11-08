@@ -1,8 +1,6 @@
 package milanesa.stickerpackcreator.main;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -88,6 +86,37 @@ public class FileModifiers {
             }
             bufferedWriter.close();
             System.out.println("[writeContentsJson] Custom Json written.");
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    static void startGradleBuild(String mainDirPath){
+        try {
+            System.out.println("[startGradleBuild] Starting build, this could take some time, go grab some coffee...");
+            ProcessBuilder gradlewProcessBuilder = new ProcessBuilder(mainDirPath.concat("\\android\\gradlew.bat"), "assembleDebug");
+            gradlewProcessBuilder.directory(new File(mainDirPath.concat("/android")));
+            gradlewProcessBuilder.redirectOutput(ProcessBuilder.Redirect.INHERIT); //If I delete this line the process won't finish.
+            Process gradlewProcess = gradlewProcessBuilder.start();
+            gradlewProcess.waitFor();
+            System.out.println("[startGradleBuild] Gradle process finished.");
+
+            if(gradlewProcess.exitValue()!=0){
+                System.out.println("[startGradleBuild] BEGIN of gradle error output:");
+                BufferedReader errorStreamReader = new BufferedReader(new InputStreamReader(gradlewProcess.getErrorStream()));
+                String errorStreamLine = errorStreamReader.readLine();
+                while(errorStreamLine != null){
+                    System.out.println(errorStreamLine);
+                    errorStreamLine = errorStreamReader.readLine();
+                }
+                errorStreamReader.close();
+                System.out.println("[startGradleBuild] END of gradle error output.");
+                System.out.println("[startGradleBuild] Gradle build exit code: "+gradlewProcess.exitValue()+" aborting.");
+                Runtime.getRuntime().exit(1);
+            }else{
+                System.out.println("[startGradleBuild] Gradle build finished successfully.");
+            }
+
         }catch(Exception ex){
             ex.printStackTrace();
         }
