@@ -18,28 +18,47 @@ public class Main {
     public static String jarPath;
 
     public static void main(String[] args){
+        //Initialization, the packName variable holds the name to put later on on the "contents.json" file
         System.out.println("Developer: Milanesa-chan (@lucc22221)");
         System.out.print("Set a name for your pack: ");
         Scanner inputScanner = new Scanner(System.in);
         packName = inputScanner.next();
 
+        //Get the path of folders accessed frequently. The absolute path of the jar is needed
+        //since many instances of this app will be executing at the same time.
         jarPath = FileGetters.getJarPath();
         assetsFolderPath = jarPath.concat("/android/app/src/main/assets");
 
+        //This makes sure every directory needed is created and is empty.
+        //Beware everything from the input/resized/converted folders and also the assets folder of the
+        //android app will be deleted, so don't put your non-backup'd family photos in there!
         checkFolderConditions(jarPath);
 
+        //Sticker images from the input folder are resized and put into "resized". I hope i've been clear they are resized.
         outputResizedImages(jarPath, ImageModifiers.resizeAllImages(FileGetters.getImagesFromFolder(jarPath)));
+
+        //Everything from the resized folder is put into the converted folder in webp format.
+        //Don't put your hand in there or else it will be compressed into webp.
+        //Worry not, webp is open source, you can get it back.
         ImageModifiers.convertImagesToWebp(jarPath);
         ImageModifiers.moveImagesToAssets(assetsFolderPath, jarPath);
 
+        //The tray image has a different size and is not compressed as the sticker ones,
+        //So it has to be done on a different process.
         BufferedImage trayImage = FileGetters.getTrayImage(jarPath);
         trayImage = ImageModifiers.resizeTray(trayImage);
         outputTrayImage(assetsFolderPath, trayImage);
 
+        //We get the data from a model json in the same folder as the jar. No, don't modify the model.
+        //Yes I could have put it inside the jar but me don't like that.
         List<String> jsonData = FileGetters.getModelData(FileGetters.getModelJson(jarPath));
 
+        //It's a weird name but the "custom" json is the model json with the data specifically needed for
+        //this pack regex'd into it.
         List<String> customJsonData = FileModifiers.customizeDataForPack(jsonData, packName, "tray.png");
         FileModifiers.writeContentsJson(assetsFolderPath, customJsonData);
+
+        
     }
 
     private static void checkFolderConditions(String mainDirPath){
