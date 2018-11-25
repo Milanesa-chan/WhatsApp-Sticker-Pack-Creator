@@ -20,9 +20,9 @@ public class Main {
 
     public static void main(String[] args){
         System.out.println("Developer: Milanesa-chan (@lucc22221)");
+
         //Initialization, the packName variable holds the name to put later on on the "contents.json" file
-
-
+        packName = getPackName(args);
 
 
         //Get the path of folders accessed frequently. The absolute path of the jar is needed

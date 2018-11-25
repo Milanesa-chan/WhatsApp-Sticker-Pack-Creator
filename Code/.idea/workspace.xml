@@ -23,12 +23,13 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/milanesa/stickerpackcreator/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="78" column="111" selection-start-line="78" selection-start-column="111" selection-end-line="78" selection-end-column="111" />
+            <state relative-caret-position="207">
+              <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
               <folding>
                 <element signature="e#2377#2471#0" />
                 <element signature="e#2647#2744#0" />
                 <element signature="e#2972#3080#0" />
+                <element signature="method#getPackName#0;class#Main#0" />
                 <element signature="method#checkFolderConditions#0;class#Main#0" />
                 <element signature="method#outputResizedImages#0;class#Main#0" />
                 <element signature="method#outputTrayImage#0;class#Main#0" />
@@ -259,17 +260,18 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3292683" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info id="Image Layers" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3292683" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3292683" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20244215" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20244215" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="5" />
@@ -282,7 +284,6 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3292683" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -302,6 +303,7 @@
             <element signature="e#2377#2471#0" />
             <element signature="e#2647#2744#0" />
             <element signature="e#2972#3080#0" />
+            <element signature="method#getPackName#0;class#Main#0" />
             <element signature="method#checkFolderConditions#0;class#Main#0" />
             <element signature="method#outputResizedImages#0;class#Main#0" />
             <element signature="method#outputTrayImage#0;class#Main#0" />
@@ -375,6 +377,7 @@
             <element signature="e#2377#2471#0" />
             <element signature="e#2647#2744#0" />
             <element signature="e#2972#3080#0" />
+            <element signature="method#getPackName#0;class#Main#0" />
             <element signature="method#checkFolderConditions#0;class#Main#0" />
             <element signature="method#outputResizedImages#0;class#Main#0" />
             <element signature="method#outputTrayImage#0;class#Main#0" />
@@ -448,6 +451,7 @@
             <element signature="e#2377#2471#0" />
             <element signature="e#2647#2744#0" />
             <element signature="e#2972#3080#0" />
+            <element signature="method#getPackName#0;class#Main#0" />
             <element signature="method#checkFolderConditions#0;class#Main#0" />
             <element signature="method#outputResizedImages#0;class#Main#0" />
             <element signature="method#outputTrayImage#0;class#Main#0" />
@@ -521,6 +525,7 @@
             <element signature="e#2377#2471#0" />
             <element signature="e#2647#2744#0" />
             <element signature="e#2972#3080#0" />
+            <element signature="method#getPackName#0;class#Main#0" />
             <element signature="method#checkFolderConditions#0;class#Main#0" />
             <element signature="method#outputResizedImages#0;class#Main#0" />
             <element signature="method#outputTrayImage#0;class#Main#0" />
@@ -634,12 +639,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/milanesa/stickerpackcreator/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="78" column="111" selection-start-line="78" selection-start-column="111" selection-end-line="78" selection-end-column="111" />
+        <state relative-caret-position="207">
+          <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
           <folding>
             <element signature="e#2377#2471#0" />
             <element signature="e#2647#2744#0" />
             <element signature="e#2972#3080#0" />
+            <element signature="method#getPackName#0;class#Main#0" />
             <element signature="method#checkFolderConditions#0;class#Main#0" />
             <element signature="method#outputResizedImages#0;class#Main#0" />
             <element signature="method#outputTrayImage#0;class#Main#0" />
