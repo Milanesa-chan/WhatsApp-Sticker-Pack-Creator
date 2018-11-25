@@ -1,7 +1,9 @@
-# WhatsApp Sticker Pack Creator
+# WhatsApp Sticker Pack Creator (WASPC)
 
-# TODO
+A simple Java application to create sticker packs (for WhatsApp).
 
-- This readme.
+##Release expected in Dec 2018
 
-- Main functionality: Done.
+Once I finish a release I'll complete this readme with info on how to use it.
+
+Please feel free to download the source and finish it yourself in the meantime.
