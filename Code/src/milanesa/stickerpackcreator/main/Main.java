@@ -7,22 +7,23 @@ import java.io.FileFilter;
 import java.io.FilenameFilter;
 import java.net.URLDecoder;
 import java.nio.Buffer;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
-
-//Milanesa-chan (@lucc22221) made this crap.
+//WhatsApp Sticker Pack Creator (WASPC).
+//Milanesa-chan (@github) made this.
 
 public class Main {
     private static String packName, assetsFolderPath;
     public static String jarPath;
 
     public static void main(String[] args){
-        //Initialization, the packName variable holds the name to put later on on the "contents.json" file
         System.out.println("Developer: Milanesa-chan (@lucc22221)");
-        System.out.print("Set a name for your pack: ");
-        Scanner inputScanner = new Scanner(System.in);
-        packName = inputScanner.next();
+
+        //Initialization, the packName variable holds the name to put later on on the "contents.json" file
+        packName = getPackName(args);
+
 
         //Get the path of folders accessed frequently. The absolute path of the jar is needed
         //since many instances of this app will be executing at the same time.
@@ -64,6 +65,35 @@ public class Main {
         String apkOutputPath = jarPath.concat("/android/app/build/outputs/apk/debug/app-debug.apk");
         moveApkToOutput(jarPath, apkOutputPath);
         System.out.println("[Main] Process finished.");
+    }
+
+    //Receives the execution args. If the args contain "/packname" it will return the string after that.
+    //If it doesn't it promps the user to choose the name and returns the sanitized input.
+    private static String getPackName(String[] args){
+        List<String> argsList = Arrays.asList(args);
+        if(argsList.contains("/packname")){
+            int indexOfPackName = argsList.indexOf("/packname") + 1;
+            String potPackName = argsList.get(indexOfPackName);
+            int potPackNameLen = potPackName.length();
+            if(potPackNameLen < 3 || potPackNameLen > 32){
+                System.out.println("[Error][getPackName] Pack name must be between 3 and 32 characters long.");
+                Runtime.getRuntime().exit(1);
+                return null;
+            }else{
+                return potPackName;
+            }
+        }else{
+            System.out.print("Set a name for your pack: ");
+            Scanner inputScanner = new Scanner(System.in);
+            String potPackName = inputScanner.next();
+            int potPackNameLen = potPackName.length();
+            while(potPackNameLen < 3 || potPackNameLen > 32){
+                System.out.println("Pack name must be between 3 and 32 characters long:");
+                potPackName = inputScanner.next();
+                potPackNameLen = potPackName.length();
+            }
+            return potPackName;
+        }
     }
 
     private static void checkFolderConditions(String mainDirPath){
