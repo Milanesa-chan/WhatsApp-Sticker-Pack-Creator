@@ -1,0 +1,29 @@
+{
+  "android_play_store_link": "",
+  "ios_app_store_link": "",
+  "sticker_packs": [
+    {
+      "identifier": "1",
+      "name": "asdf",
+      "publisher": "Git:Milanesa-chan",
+      "tray_image_file": "tray.png",
+      "publisher_email":"",
+      "publisher_website": "",
+      "privacy_policy_website": "",
+      "license_agreement_website": "",
+      "stickers": [
+{
+"image_file": "1.webp"
+}
+,
+{
+"image_file": "2.webp"
+}
+,
+{
+"image_file": "3.webp"
+}
+      ]
+    }
+  ]
+}

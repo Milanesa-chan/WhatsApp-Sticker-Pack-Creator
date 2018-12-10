@@ -15,9 +15,10 @@ public class FileGetters {
     private static FilenameFilter imageFilenameFilter = new FilenameFilter() {
         @Override
         public boolean accept(File dir, String name) {
-            if(name.equals("tray.jpg") || name.equals("tray.jpeg") || name.equals("tray.png")) {
+            String lcName = name.toLowerCase();
+            if(lcName.equals("tray.jpg") || lcName.equals("tray.jpeg") || lcName.equals("tray.png")) {
                 return false;
-            }else if(name.endsWith(".jpg") || name.endsWith(".jpeg") || name.endsWith(".png")){
+            }else if(lcName.endsWith(".jpg") || lcName.endsWith(".jpeg") || lcName.endsWith(".png")){
                 return true;
             }else{
                 return false;
@@ -26,8 +27,9 @@ public class FileGetters {
     };
     private static FilenameFilter trayImageFilter = new FilenameFilter() {
         @Override
-        public boolean accept(File dir, String name) {
-            if(name.equals("tray.png") || name.equals("tray.jpg") || name.equals("tray.jpeg")){
+        public boolean accept(File dir, String fileName) {
+            String lcName = fileName.toLowerCase();
+            if(lcName.equals("tray.png") || lcName.equals("tray.jpg") || lcName.equals("tray.jpeg")){
                 return true;
             }else {
                 return false;
