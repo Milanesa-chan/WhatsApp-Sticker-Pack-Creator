@@ -11,12 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1f650d9-0d12-4c9b-82f9-88c2b0e58162" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/WhatsApp-Sticker-Pack-Creator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/WhatsApp-Sticker-Pack-Creator.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Code/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/src/milanesa/stickerpackcreator/main/FileGetters.java" beforeDir="false" afterPath="$PROJECT_DIR$/Code/src/milanesa/stickerpackcreator/main/FileGetters.java" afterDir="false" />
-    </list>
+    <list default="true" id="a1f650d9-0d12-4c9b-82f9-88c2b0e58162" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +34,7 @@
         <entry file="file://$PROJECT_DIR$/Code/src/milanesa/stickerpackcreator/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1705">
-              <caret line="58" column="61" lean-forward="true" selection-start-line="58" selection-start-column="61" selection-end-line="58" selection-end-column="61" />
+              <caret line="58" column="61" selection-start-line="58" selection-start-column="61" selection-end-line="58" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -47,8 +42,8 @@
       <file leaf-file-name="FileGetters.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Code/src/milanesa/stickerpackcreator/main/FileGetters.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="20" column="82" selection-start-line="20" selection-start-column="82" selection-end-line="20" selection-end-column="82" />
+            <state relative-caret-position="301">
+              <caret line="96" column="5" lean-forward="true" selection-start-line="96" selection-start-column="5" selection-end-line="96" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -259,14 +254,14 @@
     <entry file="file://$PROJECT_DIR$/Code/src/milanesa/stickerpackcreator/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1705">
-          <caret line="58" column="61" lean-forward="true" selection-start-line="58" selection-start-column="61" selection-end-line="58" selection-end-column="61" />
+          <caret line="58" column="61" selection-start-line="58" selection-start-column="61" selection-end-line="58" selection-end-column="61" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Code/src/milanesa/stickerpackcreator/main/FileGetters.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="20" column="82" selection-start-line="20" selection-start-column="82" selection-end-line="20" selection-end-column="82" />
+        <state relative-caret-position="301">
+          <caret line="96" column="5" lean-forward="true" selection-start-line="96" selection-start-column="5" selection-end-line="96" selection-end-column="5" />
         </state>
       </provider>
     </entry>
