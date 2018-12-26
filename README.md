@@ -2,8 +2,23 @@
 
 A simple Java application to create sticker packs (for WhatsApp).
 
-## Release expected in Dec 2018
+## Considerations
 
-Once I finish a release I'll complete this readme with info on how to use it.
+-This application can only be executed on Windows.
+-You need to have the [android-sdk](https://developer.android.com/studio/?hl=es-419#downloads) installed and updated on your PC.
+-Requires Java 8 to be installed on your PC.
+-You must adhere to WhatsApp Terms and Conditions.
+-Only produces ".apk" format files.
+-Requires all images to be .jpg or .png in all of their variations.
 
-Please feel free to download the source and finish it yourself in the meantime.
+
+## How-To
+
+1.Download latest release from releases page (the zip file).
+2.Extract the contents of the file in an isolated folder.
+3.Put all your images to be used as stickers inside the "input" folder (packed with the app).
+4.You must include one (and only one) image called "tray" of JPG or PNG format. This will be used as icon for the WhatsApp tab.
+5.Execute "Start.bat" and enter your desired stickerpack name when asked.
+6.When process is finished (could take several minutes) you should see an apk file inside the "output" folder.
+
+For any issue that appears first check the console output, it's very informative and anyone who can read english can understand and fix most of the errors. If the issue seems greater ask the owner of this repository.
