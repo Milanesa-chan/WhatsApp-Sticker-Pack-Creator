@@ -36,9 +36,9 @@ public class FileModifiers {
         }
     }
 
-    static List<String> customizeDataForPack(List<String> modelData, String packName, String trayName){
+    static List<String> customizeDataForPack(List<String> modelData, String packName, String trayName, int amountOfImages){
         List<String> customData = new ArrayList<>();
-        List<String> customImageFiles = customImageFileLines(3);
+        List<String> customImageFiles = customImageFileLines(amountOfImages);
 
         for(int line=0; line<modelData.size(); line++){
             String lineData = modelData.get(line);
