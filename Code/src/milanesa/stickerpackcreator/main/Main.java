@@ -141,7 +141,7 @@ public class Main {
         FileModifiers.prepareAssetsFolder(assetsFolderPath);
     }
 
-    private static void outputResizedImages(String mainDirPath, BufferedImage[] imagesToOutput){
+    private static int outputResizedImages(String mainDirPath, BufferedImage[] imagesToOutput){
         File outputFolder = new File(mainDirPath.concat("/resized"));
 
         if(!outputFolder.exists()){
@@ -158,6 +158,8 @@ public class Main {
             }
         }catch(Exception ex){
             ex.printStackTrace();
+        }finally{
+            return imagesToOutput.length;
         }
     }
 
