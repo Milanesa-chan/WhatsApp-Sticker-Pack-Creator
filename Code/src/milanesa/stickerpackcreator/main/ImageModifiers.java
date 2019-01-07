@@ -108,8 +108,7 @@ public class ImageModifiers {
         try{
             ProcessBuilder cwebpProcessBuilder = new ProcessBuilder("cwebp.bat");
             cwebpProcessBuilder.directory(new File(mainDirPath));
-            cwebpProcessBuilder.redirectOutput();
-            cwebpProcessBuilder.redirectError();
+            cwebpProcessBuilder.inheritIO();
             Process process = cwebpProcessBuilder.start();
             process.waitFor();
             System.out.println("[convertImagesToWebp] Images have been converted to webp.");
