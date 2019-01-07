@@ -1,3 +1,3 @@
 @echo off
-java -jar WSPC.jar
+java -jar WASPC Debug.jar
 pause
