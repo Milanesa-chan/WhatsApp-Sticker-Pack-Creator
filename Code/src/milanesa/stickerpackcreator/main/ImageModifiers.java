@@ -3,6 +3,7 @@ package milanesa.stickerpackcreator.main;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.InputStreamReader;
 
 public class ImageModifiers {
 
@@ -104,7 +105,9 @@ public class ImageModifiers {
 
     static void convertImagesToWebp(String mainDirPath){
         try{
-            Process process = new ProcessBuilder(mainDirPath.concat("\\cwebp.bat")).start();
+            ProcessBuilder cwebpProcessBuilder = new ProcessBuilder("cwebp.bat");
+            cwebpProcessBuilder.directory(new File(mainDirPath));
+            Process process = cwebpProcessBuilder.start();
             process.waitFor();
             System.out.println("[convertImagesToWebp] Images have been converted to webp.");
         }catch(Exception ex){
