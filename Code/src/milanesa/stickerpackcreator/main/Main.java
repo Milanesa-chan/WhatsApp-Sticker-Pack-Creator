@@ -24,7 +24,6 @@ public class Main {
         //Initialization, the packName variable holds the name to put later on on the "contents.json" file
         packName = getPackName(args);
 
-
         //Get the path of folders accessed frequently. The absolute path of the jar is needed
         //since many instances of this app will be executing at the same time.
         jarPath = FileGetters.getJarPath();
@@ -36,7 +35,8 @@ public class Main {
         checkFolderConditions(jarPath);
 
         //Sticker images from the input folder are resized and put into "resized". I hope i've been clear they are resized.
-        outputResizedImages(jarPath, ImageModifiers.resizeAllImages(FileGetters.getImagesFromFolder(jarPath)));
+        //"amountOfImages" will be used to create the custom "contents.json" further below.
+        int amountOfImages = outputResizedImages(jarPath, ImageModifiers.resizeAllImages(FileGetters.getImagesFromFolder(jarPath)));
 
         //Everything from the resized folder is put into the converted folder in webp format.
         //Don't put your hand in there or else it will be compressed into webp.
@@ -55,8 +55,8 @@ public class Main {
         List<String> jsonData = FileGetters.getModelData(FileGetters.getModelJson(jarPath));
 
         //It's a weird name but the "custom" json is the model json with the data specifically needed for
-        //this pack regex'd into it.
-        List<String> customJsonData = FileModifiers.customizeDataForPack(jsonData, packName, "tray.png");
+        //this pack regex'd into it. "amountOfImages" is used here.
+        List<String> customJsonData = FileModifiers.customizeDataForPack(jsonData, packName, "tray.png", amountOfImages);
         FileModifiers.writeContentsJson(assetsFolderPath, customJsonData);
 
         //Start the build of the apk. It uses the gradle "assembleDebug" I plan on making this better in the future,
