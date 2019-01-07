@@ -71,8 +71,8 @@ public class Main {
     //If it doesn't it promps the user to choose the name and returns the sanitized input.
     private static String getPackName(String[] args){
         List<String> argsList = Arrays.asList(args);
-        if(argsList.contains("/packname")){
-            int indexOfPackName = argsList.indexOf("/packname") + 1;
+        if(argsList.contains("-packname")){
+            int indexOfPackName = argsList.indexOf("-packname") + 1;
             String potPackName = argsList.get(indexOfPackName);
             int potPackNameLen = potPackName.length();
             if(potPackNameLen < 3 || potPackNameLen > 32){
