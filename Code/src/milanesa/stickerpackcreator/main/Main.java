@@ -17,9 +17,12 @@ import java.util.Scanner;
 public class Main {
     private static String packName, assetsFolderPath;
     public static String jarPath;
+    private static boolean warmupGradle;
 
     public static void main(String[] args){
         System.out.println("Developer: Milanesa-chan (@lucc22221)");
+
+        CheckArguments(args);
 
         //Initialization, the packName variable holds the name to put later on on the "contents.json" file
         packName = getPackName(args);
@@ -177,5 +180,17 @@ public class Main {
         File apkFile = new File(apkOutputPath);
         apkFile.renameTo(new File(mainDirPath.concat("/output/CustomStickerPack.apk")));
         System.out.println("[moveApkToOutput] Apk moved to output folder. Main process finished successfully!");
+    }
+
+    private static void CheckArguments(String[] args){
+        List<String> argsList = Arrays.asList(args);
+
+        if(argsList.contains("-warmup")){
+            System.out.println("[CheckArguments] Warming up Gradle. This execution will not create a sticker pack.");
+            jarPath = FileGetters.getJarPath();
+            FileModifiers.startGradleBuild(jarPath);
+            System.out.println("[CheckArguments] Gradle warmup finished. Next builds will be faster.");
+            Runtime.getRuntime().exit(0);
+        }
     }
 }
