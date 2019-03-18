@@ -2,7 +2,7 @@
 
 A simple Java application to create sticker packs (for WhatsApp).
 
-[Changelog](CHANGELOG.md)
+[Changelog](/CHANGELOG.md) - [Command line commands](/COMMANDS.md)
 
 ## Considerations
 
