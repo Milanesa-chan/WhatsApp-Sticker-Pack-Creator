@@ -2,6 +2,8 @@
 
 A simple Java application to create sticker packs (for WhatsApp).
 
+[Changelog](CHANGELOG.md)
+
 ## Considerations
 
 * This application can only be executed on Windows.
