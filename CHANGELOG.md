@@ -1,13 +1,13 @@
 # Version v0.0.2:
 
-## Fixed:
+### Fixed:
  -Stickerpacks not having more than 3 images.
  -Cwebp console consumption which didn't allow more than 5 input images.
 
-## Changed:
+### Changed:
  -Syntax of command line arguments from "/command" to "-command".
 
-## Added:
+### Added:
  -Command: "-warmup" which warms up gradle. After using this command subsequent builds will be much faster.
 
 # Version v0.0.1:
