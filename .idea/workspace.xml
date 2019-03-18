@@ -11,10 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1f650d9-0d12-4c9b-82f9-88c2b0e58162" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/Code/out/artifacts/WASPC_Debug/WASPC Debug.jar" beforeDir="false" afterPath="$PROJECT_DIR$/Code/out/artifacts/WASPC_Debug/WASPC Debug.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/src/milanesa/stickerpackcreator/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Code/src/milanesa/stickerpackcreator/main/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="a1f650d9-0d12-4c9b-82f9-88c2b0e58162" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +32,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Code/src/milanesa/stickerpackcreator/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="191" column="103" selection-start-line="191" selection-start-column="103" selection-end-line="191" selection-end-column="103" />
+            <state relative-caret-position="355">
+              <caret line="181" column="87" lean-forward="true" selection-start-line="181" selection-start-column="87" selection-end-line="181" selection-end-column="87" />
             </state>
           </provider>
         </entry>
@@ -134,7 +131,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552876513991" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552879245862" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
@@ -273,8 +270,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Code/src/milanesa/stickerpackcreator/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="191" column="103" selection-start-line="191" selection-start-column="103" selection-end-line="191" selection-end-column="103" />
+        <state relative-caret-position="355">
+          <caret line="181" column="87" lean-forward="true" selection-start-line="181" selection-start-column="87" selection-end-line="181" selection-end-column="87" />
         </state>
       </provider>
     </entry>
