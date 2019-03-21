@@ -104,6 +104,7 @@ public class Main {
         File resizedFolder = new File(mainDirPath.concat("/resized"));
         File convertedFolder = new File(mainDirPath.concat("/converted"));
         File outputFolder = new File(mainDirPath.concat("/output"));
+        File logsFolder = new File(mainDirPath.concat("/logs"));
 
         if(!inputFolder.exists() || !inputFolder.isDirectory()){
             inputFolder.mkdirs();
@@ -139,6 +140,21 @@ public class Main {
                 file.delete();
             }
             System.out.println("[checkFolderConditions] All files in \"output\" have been deleted.");
+        }
+
+        if(!logsFolder.exists()){
+            logsFolder.mkdirs();
+        }else{
+            if(!logsFolder.isDirectory()){
+                System.out.println("[checkFolderConditions] Error when accessing logs directory. Aborting.");
+                Runtime.getRuntime().exit(1);
+            }else{
+                System.out.println("[checkFolderConditions] Cleaning all existing logs...");
+                for(File file : logsFolder.listFiles()){
+                    file.delete();
+                }
+                System.out.println("[checkFolderConditions] Logs deleted.");
+            }
         }
 
         FileModifiers.prepareAssetsFolder(assetsFolderPath);
