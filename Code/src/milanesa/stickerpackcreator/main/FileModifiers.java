@@ -1,7 +1,13 @@
 package milanesa.stickerpackcreator.main;
 
 import java.io.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAccessor;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class FileModifiers {
@@ -120,5 +126,30 @@ public class FileModifiers {
         }catch(Exception ex){
             ex.printStackTrace();
         }
+    }
+
+    static void createLoggingThread(String mainDirPath, String appToLog, boolean isError, InputStream streamToLog){
+        DateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
+        Date currentDate = Date.from(Instant.now());
+        String logFilePath = mainDirPath.concat("/logs/"+appToLog+" "+ simpleDateFormat.format(currentDate) + ((isError) ? " Error" : "") + ".txt");
+
+        new Thread(() -> {
+            try {
+                File logFile = new File(logFilePath);
+                FileWriter fw = new FileWriter(logFile);
+                BufferedWriter writer = new BufferedWriter(fw);
+                BufferedReader reader = new BufferedReader(new InputStreamReader(streamToLog));
+
+                String nextLine;
+                while((nextLine = reader.readLine()) != null){
+                    writer.write(nextLine);
+                    writer.newLine();
+                }
+
+                writer.close();
+            }catch(Exception ex){
+                ex.printStackTrace();
+            }
+        }).start();
     }
 }
