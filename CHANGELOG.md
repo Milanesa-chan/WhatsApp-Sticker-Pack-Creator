@@ -4,6 +4,8 @@
  -Stickerpacks not having more than 3 images.
 
  -Cwebp console consumption which didn't allow more than 5 input images.
+ 
+ -Images not properly resized.
 
 ### Changed:
  -Syntax of command line arguments from "/command" to "-command".
