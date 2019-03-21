@@ -77,28 +77,14 @@ public class ImageModifiers {
         int new_width = original_width;
         int new_height = original_height;
 
-        if (original_width > bound_width) {
+        if(original_width > original_height){
             new_width = bound_width;
             new_height = (new_width * original_height) / original_width;
         }
 
-        if (new_height > bound_height) {
+        if(original_height > original_width || original_height == original_width){
             new_height = bound_height;
             new_width = (new_height * original_width) / original_height;
-        }
-
-        if(original_width < bound_width){
-            if(original_height < bound_height){
-                new_height = bound_height;
-                new_width = (new_height * original_width) / original_height;
-            }
-        }
-
-        if(original_height < bound_height){
-            if(original_width < bound_width){
-                new_height = bound_height;
-                new_width = (new_height * original_width) / original_height;
-            }
         }
 
         return new Dimension(new_width, new_height);
