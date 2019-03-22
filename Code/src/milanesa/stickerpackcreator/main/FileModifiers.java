@@ -102,8 +102,11 @@ public class FileModifiers {
             System.out.println("[startGradleBuild] Starting build, this could take some time, go grab some coffee...");
             ProcessBuilder gradlewProcessBuilder = new ProcessBuilder(mainDirPath.concat("\\android\\gradlew.bat"), "assembleDebug");
             gradlewProcessBuilder.directory(new File(mainDirPath.concat("/android")));
-            gradlewProcessBuilder.redirectOutput(ProcessBuilder.Redirect.INHERIT); //If I delete this line the process won't finish.
+            //gradlewProcessBuilder.redirectOutput(ProcessBuilder.Redirect.INHERIT); //If I delete this line the process won't finish.
             Process gradlewProcess = gradlewProcessBuilder.start();
+
+            createLoggingThread(mainDirPath, "Gradle", false, gradlewProcess.getInputStream());
+
             gradlewProcess.waitFor();
             System.out.println("[startGradleBuild] Gradle process finished.");
 
