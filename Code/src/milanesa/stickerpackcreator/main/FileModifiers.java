@@ -127,7 +127,7 @@ public class FileModifiers {
     static void createLoggingThread(String mainDirPath, String appToLog, boolean isError, InputStream streamToLog){
         DateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
         Date currentDate = Date.from(Instant.now());
-        String logFilePath = mainDirPath.concat("/logs/"+appToLog+" "+ simpleDateFormat.format(currentDate) + ((isError) ? " Error" : "") + ".txt");
+        String logFilePath = mainDirPath.concat("/logs/"+appToLog+" "+ simpleDateFormat.format(currentDate) + ((isError) ? " Error" : "") + " log.txt");
 
         new Thread(() -> {
             try {
