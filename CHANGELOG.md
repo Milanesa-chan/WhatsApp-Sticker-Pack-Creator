@@ -9,6 +9,8 @@
 
 ### Changed:
  -Syntax of command line arguments from "/command" to "-command".
+ 
+ -Both CWebp and Gradle output their Error and Console outputs to a total of 4 log files in the "logs" folder.
 
 ### Added:
  -Command: "-warmup" which warms up gradle. After using this command subsequent builds will be much faster.
