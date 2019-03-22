@@ -106,21 +106,14 @@ public class FileModifiers {
             Process gradlewProcess = gradlewProcessBuilder.start();
 
             createLoggingThread(mainDirPath, "Gradle", false, gradlewProcess.getInputStream());
+            createLoggingThread(mainDirPath, "Gradle", true, gradlewProcess.getErrorStream());
 
             gradlewProcess.waitFor();
             System.out.println("[startGradleBuild] Gradle process finished.");
 
             if(gradlewProcess.exitValue()!=0){
-                System.out.println("[startGradleBuild] BEGIN of gradle error output:");
-                BufferedReader errorStreamReader = new BufferedReader(new InputStreamReader(gradlewProcess.getErrorStream()));
-                String errorStreamLine = errorStreamReader.readLine();
-                while(errorStreamLine != null){
-                    System.out.println(errorStreamLine);
-                    errorStreamLine = errorStreamReader.readLine();
-                }
-                errorStreamReader.close();
-                System.out.println("[startGradleBuild] END of gradle error output.");
-                System.out.println("[startGradleBuild] Gradle build exit code: "+gradlewProcess.exitValue()+" aborting.");
+                System.out.println("[startGradleBuild] Gradle build finished with errors. Can't continue.");
+                System.out.println("[startGradleBuild] Gradle build exit code: "+gradlewProcess.exitValue()+". Aborting.");
                 Runtime.getRuntime().exit(1);
             }else{
                 System.out.println("[startGradleBuild] Gradle build finished successfully.");
