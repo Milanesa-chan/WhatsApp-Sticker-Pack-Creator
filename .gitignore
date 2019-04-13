@@ -1,2 +1,5 @@
-
 Ignored/
+.idea/workspace.xml
+out/
+*.iml
+
