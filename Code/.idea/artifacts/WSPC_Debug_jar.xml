@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="WSPC_Debug.jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/WSPC_Debug_jar</output-path>
-    <root id="archive" name="WSPC.jar">
-      <element id="module-output" name="Code" />
-    </root>
-  </artifact>
-</component>
