@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="WASPC Debug">
-    <output-path>$PROJECT_DIR$/Code/out/artifacts/WASPC_Debug</output-path>
-    <root id="archive" name="WASPC Debug.jar">
-      <element id="module-output" name="WhatsApp-Sticker-Pack-Creator" />
-    </root>
-  </artifact>
-</component>
