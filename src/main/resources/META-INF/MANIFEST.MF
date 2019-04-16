@@ -1,2 +1,3 @@
 Manifest-Version: 1.0
 Created-By: Milanesa-chan
+Main-Class: milanesa.stickerpackcreator.main.Main
