@@ -1,5 +1,5 @@
 Ignored/
 .idea/workspace.xml
-out/
+target/
 *.iml
 
