@@ -24,3 +24,10 @@ A simple Java application to create sticker packs (for WhatsApp).
 1. When process is finished (could take several minutes) you should see an apk file inside the "output" folder.
 
 For any issue that appears first check the console output, it's very informative and anyone who can read english can understand and fix most of the errors. If the issue seems greater ask the owner of this repository.
+
+
+## Third-Party Software
+
+This application relies on WhatsApp's [stickers](https://github.com/WhatsApp/stickers) software to create Android apk's.
+
+[See license](/tools/third-party/WhatsApp-stickers/stickers-master/LICENSE)
