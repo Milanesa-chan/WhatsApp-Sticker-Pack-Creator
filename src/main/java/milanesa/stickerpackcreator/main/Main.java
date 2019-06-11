@@ -20,7 +20,7 @@ public class Main {
     private static boolean warmupGradle;
 
     public static void main(String[] args){
-        System.out.println("Developer: Milanesa-chan (@lucc22221)");
+        System.out.println("Developer: Milanesa-chan (@DevMilanesa)");
 
         CheckArguments(args);
 
