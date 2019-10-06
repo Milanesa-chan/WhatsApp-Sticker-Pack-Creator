@@ -204,6 +204,7 @@ public class Main {
         if(argsList.contains("-warmup")){
             System.out.println("[CheckArguments] Warming up Gradle. This execution will not create a sticker pack.");
             jarPath = FileGetters.getJarPath();
+            checkFolderConditions(jarPath);
             FileModifiers.startGradleBuild(jarPath);
             System.out.println("[CheckArguments] Gradle warmup finished. Next builds will be faster.");
             Runtime.getRuntime().exit(0);
