@@ -106,7 +106,7 @@ public class Main {
         File outputFolder = new File(mainDirPath.concat("/output"));
         File logsFolder = new File(mainDirPath.concat("/logs"));
 
-        if(!inputFolder.exists() || !inputFolder.isDirectory() && !isWarmup){
+        if((!inputFolder.exists() || !inputFolder.isDirectory()) && !isWarmup){
             inputFolder.mkdirs();
             System.out.println("[Error][checkFolderConditions] No input folder found!");
             System.out.println("[checkFolderConditions] Created input folder. Put your images there.");
