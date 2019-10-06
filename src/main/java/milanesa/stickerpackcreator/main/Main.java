@@ -35,7 +35,7 @@ public class Main {
         //This makes sure every directory needed is created and is empty.
         //Beware everything from the input/resized/converted folders and also the assets folder of the
         //android app will be deleted, so don't put your non-backup'd family photos in there!
-        checkFolderConditions(jarPath);
+        checkFolderConditions(jarPath, false);
 
         //Sticker images from the input folder are resized and put into "resized". I hope i've been clear they are resized.
         //"amountOfImages" will be used to create the custom "contents.json" further below.
@@ -204,7 +204,7 @@ public class Main {
         if(argsList.contains("-warmup")){
             System.out.println("[CheckArguments] Warming up Gradle. This execution will not create a sticker pack.");
             jarPath = FileGetters.getJarPath();
-            checkFolderConditions(jarPath);
+            checkFolderConditions(jarPath, true);
             FileModifiers.startGradleBuild(jarPath);
             System.out.println("[CheckArguments] Gradle warmup finished. Next builds will be faster.");
             Runtime.getRuntime().exit(0);
