@@ -35,7 +35,7 @@ public class Main {
         //This makes sure every directory needed is created and is empty.
         //Beware everything from the input/resized/converted folders and also the assets folder of the
         //android app will be deleted, so don't put your non-backup'd family photos in there!
-        checkFolderConditions(jarPath);
+        checkFolderConditions(jarPath, false);
 
         //Sticker images from the input folder are resized and put into "resized". I hope i've been clear they are resized.
         //"amountOfImages" will be used to create the custom "contents.json" further below.
@@ -99,43 +99,43 @@ public class Main {
         }
     }
 
-    private static void checkFolderConditions(String mainDirPath){
+    private static void checkFolderConditions(String mainDirPath, boolean isWarmup){
         File inputFolder = new File(mainDirPath.concat("/input"));
         File resizedFolder = new File(mainDirPath.concat("/resized"));
         File convertedFolder = new File(mainDirPath.concat("/converted"));
         File outputFolder = new File(mainDirPath.concat("/output"));
         File logsFolder = new File(mainDirPath.concat("/logs"));
 
-        if(!inputFolder.exists() || !inputFolder.isDirectory()){
+        if(!inputFolder.exists() || !inputFolder.isDirectory() && !isWarmup){
             inputFolder.mkdirs();
             System.out.println("[Error][checkFolderConditions] No input folder found!");
             System.out.println("[checkFolderConditions] Created input folder. Put your images there.");
             Runtime.getRuntime().exit(1);
         }
 
-        if(resizedFolder.exists() && resizedFolder.listFiles().length>0){
+        if(resizedFolder.exists() && resizedFolder.listFiles().length>0 && !isWarmup){
             for(File file : resizedFolder.listFiles()){
                 file.delete();
             }
             System.out.println("[checkFolderConditions] All files in \"resized\" have been deleted.");
         }
 
-        if(!convertedFolder.exists()){
+        if(!convertedFolder.exists() && !isWarmup){
             System.out.println("[checkFolderConditions] Creating \"converted\" folder.");
             convertedFolder.mkdirs();
         }
-        if(convertedFolder.exists() && convertedFolder.listFiles().length>0){
+        if(convertedFolder.exists() && convertedFolder.listFiles().length>0 && !isWarmup){
             for(File file : convertedFolder.listFiles()){
                 file.delete();
             }
             System.out.println("[checkFolderConditions] All files in \"converted\" have been deleted.");
         }
 
-        if(!outputFolder.exists()){
+        if(!outputFolder.exists() && !isWarmup){
             System.out.println("[checkFolderConditions] Creating \"output\" folder.");
             outputFolder.mkdirs();
         }
-        if(outputFolder.exists() && outputFolder.listFiles().length>0){
+        if(outputFolder.exists() && outputFolder.listFiles().length>0 && !isWarmup){
             for(File file : outputFolder.listFiles()){
                 file.delete();
             }
@@ -157,7 +157,7 @@ public class Main {
             }
         }
 
-        FileModifiers.prepareAssetsFolder(assetsFolderPath);
+        if(!isWarmup) FileModifiers.prepareAssetsFolder(assetsFolderPath);
     }
 
     private static int outputResizedImages(String mainDirPath, BufferedImage[] imagesToOutput){
@@ -204,6 +204,7 @@ public class Main {
         if(argsList.contains("-warmup")){
             System.out.println("[CheckArguments] Warming up Gradle. This execution will not create a sticker pack.");
             jarPath = FileGetters.getJarPath();
+            checkFolderConditions(jarPath, true);
             FileModifiers.startGradleBuild(jarPath);
             System.out.println("[CheckArguments] Gradle warmup finished. Next builds will be faster.");
             Runtime.getRuntime().exit(0);

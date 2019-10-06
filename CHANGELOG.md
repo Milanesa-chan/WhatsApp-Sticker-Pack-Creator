@@ -1,3 +1,8 @@
+# Version v0.0.3:
+
+### Fixed:
+ -Application halt when warming up if logs directory wasn't present.
+
 # Version v0.0.2:
 
 ### Fixed:
