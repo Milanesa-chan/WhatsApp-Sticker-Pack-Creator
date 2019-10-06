@@ -157,7 +157,7 @@ public class Main {
             }
         }
 
-        FileModifiers.prepareAssetsFolder(assetsFolderPath);
+        if(!isWarmup) FileModifiers.prepareAssetsFolder(assetsFolderPath);
     }
 
     private static int outputResizedImages(String mainDirPath, BufferedImage[] imagesToOutput){
