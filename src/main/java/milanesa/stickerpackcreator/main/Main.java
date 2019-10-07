@@ -210,6 +210,14 @@ public class Main {
             FileModifiers.startGradleBuild(jarPath);
             System.out.println("[CheckArguments] Gradle warmup finished. Next builds will be faster.");
             Runtime.getRuntime().exit(0);
+        }else if(argsList.contains("-stopgd")){
+            System.out.println("[CheckArguments] Stopping Gradle Daemon. This execution will not create a sticker pack.");
+            jarPath = FileGetters.getJarPath();
+            checkFolderConditions(jarPath, true);
+            int gdExitCode = FileModifiers.stopGradleDaemons(jarPath);
+            if(gdExitCode != 0) System.out.println("[CheckArguments] Gradle Daemon stopping process finished with error code: "+gdExitCode);
+            else System.out.println("[CheckArguments] Gradle Daemon stopped successfully.");
+            Runtime.getRuntime().exit(gdExitCode);
         }
     }
 }
