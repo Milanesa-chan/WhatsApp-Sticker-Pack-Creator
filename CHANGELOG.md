@@ -3,6 +3,9 @@
 ### Fixed:
  -Application halt when warming up if logs directory wasn't present.
 
+### Added:
+ -Command: "-stopgd" which stops all Gradle Daemon background processes. Check the commands list for more details.
+
 # Version v0.0.2:
 
 ### Fixed:
