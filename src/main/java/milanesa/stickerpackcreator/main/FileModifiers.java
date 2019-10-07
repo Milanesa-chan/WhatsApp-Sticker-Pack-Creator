@@ -124,6 +124,32 @@ public class FileModifiers {
         }
     }
 
+    /**
+     * Gradle keeps a background application to make subsequent builds faster. This application is called
+     * 'Gradle Daemon'. This method stops that process by calling 'gradlew.bat --stop'.
+     * @param mainDirPath path to where the .jar of this application is stored.
+     * @return exit code of the gradlew.bat process (-1 if an exception occurs).
+     */
+    static int stopGradleDaemons(String mainDirPath){
+        try {
+            System.out.println("[stopGradleDaemons] Stopping Gradle Daemons. This could take some time...");
+            ProcessBuilder gradlewProcessBuilder = new ProcessBuilder(mainDirPath.concat("\\android\\gradlew.bat"), "--stop");
+            gradlewProcessBuilder.directory(new File(mainDirPath.concat("/android")));
+
+            Process gradlewProcess = gradlewProcessBuilder.start();
+
+            createLoggingThread(mainDirPath, "Gradle (stopping daemon)", false, gradlewProcess.getInputStream());
+            createLoggingThread(mainDirPath, "Gradle (stopping daemon)", true, gradlewProcess.getErrorStream());
+
+            gradlewProcess.waitFor();
+            System.out.println("[stopGradleDaemons] Gradle Daemon process finished with code: "+gradlewProcess.exitValue()+".");
+            return gradlewProcess.exitValue();
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return -1;
+        }
+    }
+
     static void createLoggingThread(String mainDirPath, String appToLog, boolean isError, InputStream streamToLog){
         DateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
         Date currentDate = Date.from(Instant.now());
