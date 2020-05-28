@@ -1,5 +1,7 @@
 # WhatsApp Sticker Pack Creator (WASPC)
 
+## This project is archived and the developer will not continue developing it. Feel free to fork it and do whatever you want under the licences of it and its dependencies.
+
 A simple Java application to create sticker packs (for WhatsApp).
 
 [Changelog](/CHANGELOG.md) - [Command line commands](/COMMANDS.md) - [License (Apache 2.0)](/LICENSE)
